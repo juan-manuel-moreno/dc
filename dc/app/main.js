@@ -1,21 +1,21 @@
 
 document.addEventListener("deviceready", onDeviceReady, false);
 
+
+// TODO comment to deploy
+$( document ).ready(function() {
+	onDeviceReady();
+});
+
+
 function onDeviceReady() {
-
-    //console.log( "READY" );
-
-    window.GeoWatcher.watch();
 
     loadTemplates( appTemplatesLoaded );
 }
 
 function appTemplatesLoaded() {
-    //console.log( "VIEW TEMPLATES LOADED" );
 
     $("body").empty();
-
-
 
     var homeView = new HomeView();
     

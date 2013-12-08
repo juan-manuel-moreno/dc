@@ -1,13 +1,14 @@
-templates.listItemView = "app/views/ListItemView.html";
+templates.itemView = "app/views/ItemView.html";
 
-window.ListItemView = Backbone.View.extend({
+window.ItemView = Backbone.View.extend({
 
-    tagName:'li',
     template:undefined,
+    backLabel: "Volver",
+    title:"",
     
     initialize: function(options) {
-    
-        this.template = _.template( templates.listItemView ),
+
+        this.template = _.template( templates.itemView ),
         this.render();
         this.view = this.$el;
     },  
@@ -18,7 +19,8 @@ window.ListItemView = Backbone.View.extend({
     render:function (eventName) {
         var model = this.model;
         this.$el.html( this.template( model ));
-        this.$el.attr('id', model.id );
+        this.$el.css("background", "white");
+
         return this;
     }
 });

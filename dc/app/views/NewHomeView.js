@@ -61,8 +61,9 @@ window.HomeView = Backbone.View.extend({
     },
 
     selectRestaurants:function () {
-    	var view = new LoadItemsView();
-    	window.viewNavigator.pushView( view );
+
+        var view = new RestaurantsView();
+        window.viewNavigator.pushView( view );
     },
 
     headerButtonClick: function (event) {
