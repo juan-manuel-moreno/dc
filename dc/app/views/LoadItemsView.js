@@ -20,7 +20,7 @@ window.LoadItemsView = Backbone.View.extend({
         };
 
         //delay long enough for transition to complete
-        setTimeout(function(){LoadManager.load( self.onLoadItemsResult, self.onLoadItemsError );}, 401 );
+        setTimeout(function(){LoadManager.load( options.type , self.onLoadItemsResult, self.onLoadItemsError );}, 401 );
     },
 
     events:{

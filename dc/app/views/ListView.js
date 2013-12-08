@@ -10,6 +10,8 @@ window.ListView = Backbone.View.extend({
 
         this.model = options.model;
 
+        this.title = this.model.labelPlural;
+        
         this.render();
         this.view = this.$el;
     },  
@@ -21,7 +23,7 @@ window.ListView = Backbone.View.extend({
     render:function (eventName) {
         var template = _.template(templates.list);
         this.$el.css("background", "white");
-        this.$el.html(template( {items:this.model.items} ));        
+        this.$el.html(template( {labelPlural:this.model.labelPlural, items:this.model.items} ));        
         var $list = this.$el.find("#list");
 
         _.each(this.model.items, function (item) {
@@ -45,7 +47,7 @@ window.ListView = Backbone.View.extend({
         var item = LoadManager.loadById( id, this.model.items );
         //console.log( poi );
         
-        var itemView = new ItemView({model:item});
+        var itemView = new ItemView({model:item, labelSingular:this.model.labelSingular});
         window.ViewNavigatorUtil.pushView( itemView );
         
     }

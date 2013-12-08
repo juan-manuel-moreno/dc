@@ -11,8 +11,8 @@ window.HomeView = Backbone.View.extend({
     },  
     
     events:{
-        "click #selectHotels":"selectHotels",
-        "click #selectRestaurants":"selectRestaurants"
+        "click #loadHotels":"loadHotels",
+        "click #loadRestaurants":"loadRestaurants"
     },
     
     render:function (eventName) {
@@ -56,12 +56,13 @@ window.HomeView = Backbone.View.extend({
         return this;
     },
 
-    selectHotels:function () {
-    	alert("hotels");
+    loadHotels:function () {
+    	var view = new LoadItemsView({type:LoadManager.type.hotel});
+    	window.viewNavigator.pushView( view );
     },
 
-    selectRestaurants:function () {
-    	var view = new LoadItemsView();
+    loadRestaurants:function () {
+    	var view = new LoadItemsView({type:LoadManager.type.restaurant});
     	window.viewNavigator.pushView( view );
     },
 
