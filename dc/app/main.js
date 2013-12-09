@@ -3,16 +3,19 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 // TODO comment to deploy
-/*$( document ).ready(function() {
-	alert("doc ready");
-	onDeviceReady();
-});*/
+$( document ).ready(function() {
+//	alert("doc ready");
+//	onDeviceReady();
+});
 
 
 function onDeviceReady() {
 
 	alert("dev ready");
     loadTemplates( appTemplatesLoaded );
+    
+	JSonUtil.read("hotels.json", function(val) {alert(val);} , function() {alert("READNOK");} );
+    
 }
 
 function appTemplatesLoaded() {

@@ -2,23 +2,41 @@ JSonUtil = {
 
 	save: function( fileName, data , saveSuccess, saveError){
 		
-		alert(data);
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+	        
+	    	fileSystem.root.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
 
-			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
-		        
-		    	fileSystem.root.getFile(fileName, {create: true, exclusive: false}, function(fileEntry) {
+	    		fileEntry.createWriter(function(writer){
+		    		
+	    	        writer.write(data);
 
-		    		fileEntry.createWriter(function(writer){
-			    		
-		    			alert(data);
-		    			
-		    	        writer.write(data);
+	    	        saveSuccess();
+		        	
+	    		}, saveError);
+	        }, saveError);
+	    }, saveError);
+		
+    },
+	read: function( fileName, readSuccess, readError){
+		
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+	        
+	    	fileSystem.root.getFile(fileName, {create: false, exclusive: false}, function(fileEntry) {
 
-		    	        saveSuccess();
-			        	
-		    		}, saveError);
-		        }, saveError);
-		    }, saveError);
+	    		fileEntry.file(function(file){
+		    		
+	    			var reader = new FileReader();
+	    			reader.onloadend = function(evt) {
+    	    	        alert(evt.target.result);
+    	    	        saveSuccess(evt.target.result);
+    		        };
+	    			reader.readAsText(file);
+
+		        	
+	    		}, saveError);
+	        }, saveError);
+	    }, saveError);
 		
     }
+    
 }
