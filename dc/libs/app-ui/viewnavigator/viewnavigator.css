@@ -63,6 +63,14 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
     backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
+
+	position:absolute;
+}
+
+.viewNavigator_headerContent_old {
+
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 	
 	transform: translate3d(0,0,0);
 	-webkit-transform: translate3d(0,0,0);
@@ -88,9 +96,20 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	
    backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
-    -webkit-transform:translate3d(0,0,0);
 }
 
+.viewNavigator_content_old {
+	position:absolute;
+	top:46px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	overflow:hidden;
+	
+   backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
 
 /* ANDROID BUG WORKAROUND */
 .viewNavigator_content select {
