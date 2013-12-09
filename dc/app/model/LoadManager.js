@@ -5,6 +5,7 @@ window.LoadManager = {
 	type:{hotel:{code:"hotel",url:"/getHotels"}, restaurant:{code:"restaurant",url:"/getRestaurants"}},
 	
 	urlBase:"http://www.diproach.com/api/dc",
+	//urlBase:"http://localhost:8888/api/dc",
 	
     loadLocal:function (type, successCallback, errorCallback) {
     	var result;
