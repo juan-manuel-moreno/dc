@@ -24,18 +24,20 @@ JSonUtil = {
 	    	fileSystem.root.getFile(fileName, {create: false, exclusive: false}, function(fileEntry) {
 
 	    		fileEntry.file(function(file){
-		    		
+		    		alert(file);
 	    			var reader = new FileReader();
 	    			reader.onloadend = function(evt) {
+			    		alert("onloadend");
     	    	        alert(evt.target.result);
-    	    	        saveSuccess(evt.target.result);
+    	    	        readSuccess(evt.target.result);
     		        };
+		    		alert("readAsText");
 	    			reader.readAsText(file);
 
 		        	
-	    		}, saveError);
-	        }, saveError);
-	    }, saveError);
+	    		}, readError);
+	        }, readError);
+	    }, readError);
 		
     }
     
