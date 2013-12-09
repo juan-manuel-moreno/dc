@@ -4,8 +4,8 @@ window.LoadManager = {
 
 	type:{hotel:{code:"hotel",url:"/getHotels"}, restaurant:{code:"restaurant",url:"/getRestaurants"}},
 	
-	urlBase:"http://www.diproach.com/api/dc",
-	//urlBase:"http://localhost:8888/api/dc",
+	//urlBase:"http://www.diproach.com/api/dc",
+	urlBase:"http://localhost:8888/api/dc",
 	
     loadLocal:function (type, successCallback, errorCallback) {
     	var result;
@@ -106,7 +106,9 @@ window.LoadManager = {
 		$.getJSON(loadUrl, function(result) {
 
             if ( successCallback ) {
-                successCallback( JSON.stringify(result.data) );
+            	var jsonString = JSON.stringify(result.data);
+            	JSonUtil.save("hotels.json", jsonString, function() {alert("OK");} , function() {alert("NOK");} );
+                successCallback( jsonString );
             }
 			
 		  }).error(function(result) {
