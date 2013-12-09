@@ -57,12 +57,12 @@ window.HomeView = Backbone.View.extend({
     },
 
     loadHotels:function () {
-    	var view = new LoadItemsView({type:LoadManager.type.hotel});
+    	var view = new LoadItemsView({type:LoadManager.type.hotel.code});
     	window.viewNavigator.pushView( view );
     },
 
     loadRestaurants:function () {
-    	var view = new LoadItemsView({type:LoadManager.type.restaurant});
+    	var view = new LoadItemsView({type:LoadManager.type.restaurant.code});
     	window.viewNavigator.pushView( view );
     },
 

@@ -2,11 +2,13 @@
 
 window.LoadManager = {
 
-	type:{hotel:"HOTEL", restaurant:"RESTAURANT"},
-		
-    load:function (type, successCallback, errorCallback) {
+	type:{hotel:{code:"hotel",url:"/getHotels"}, restaurant:{code:"restaurant",url:"/getRestaurants"}},
+	
+	urlBase:"http://www.diproach.com/api/dc",
+	
+    loadLocal:function (type, successCallback, errorCallback) {
     	var result;
-    	if(type == this.type.restaurant){
+    	if(type == this.type.restaurant.code){
         	result = {
                     items: [	
                              {"name":"rest 1","id":"1"}
@@ -46,6 +48,76 @@ window.LoadManager = {
     	}
         
         successCallback( JSON.stringify(result) );
+    },
+
+    load:function (type, successCallback, errorCallback) {
+
+    	var loadUrl = this.urlBase ;
+
+    	if(type == this.type.restaurant.code){
+    		loadUrl += this.type.restaurant.url;
+    	} else {
+    		loadUrl += this.type.hotel.url;
+    	}
+    	
+    	
+    	/*
+        $.ajax({
+            timeout:20000,
+            url:loadUrl,
+            success:function(result){
+                if ( successCallback ) {
+                    successCallback( result.data );
+                }
+            },
+            error:function(error){
+                if ( errorCallback ){
+                    errorCallback( error );
+                }
+            }
+        });
+    	
+        */
+  /*      
+        
+		$.ajax({
+            timeout:20000,
+            url:loadUrl,
+			crossDomain: true,
+			type : 'GET',
+			cache : false,
+			dataType : 'json'
+		}).done(function(result) {
+
+            if ( successCallback ) {
+                successCallback( result.data );
+            }
+			
+
+		}).fail(function(a, b, c, d) {
+            if ( errorCallback ){
+                errorCallback( a );
+            }
+		});
+*/
+        
+        
+		$.getJSON(loadUrl, function(result) {
+
+            if ( successCallback ) {
+                successCallback( JSON.stringify(result.data) );
+            }
+			
+		  }).error(function(result) {
+	            if ( errorCallback ){
+	                errorCallback( result );
+	            }
+		  });
+
+		
+        
+        
+        
     },
 
     loadById:function (id, collection) {
