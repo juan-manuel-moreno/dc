@@ -11,10 +11,8 @@ $( document ).ready(function() {
 
 function onDeviceReady() {
 
-	alert("dev ready");
+	alert("dev ready 2");
     loadTemplates( appTemplatesLoaded );
-    
-	JSonUtil.read("hotels.json", function(val) {alert(val);} , function() {alert("READNOK");} );
     
 }
 

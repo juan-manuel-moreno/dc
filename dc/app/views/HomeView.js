@@ -62,8 +62,10 @@ window.HomeView = Backbone.View.extend({
     },
 
     loadRestaurants:function () {
-    	var view = new LoadItemsView({type:LoadManager.type.restaurant.code});
-    	window.viewNavigator.pushView( view );
+    	JSonUtil.read("hotels.json", function(val) {alert(val);} , function() {alert("READNOK");} );
+
+//    	var view = new LoadItemsView({type:LoadManager.type.restaurant.code});
+//    	window.viewNavigator.pushView( view );
     },
 
     headerButtonClick: function (event) {
