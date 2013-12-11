@@ -82,10 +82,6 @@ window.ModelManager = {
         }, this);    	
     },
     
-    update2:function(){
-		alert("update 2");
-    },
-    
     update:function(item){
 
     	var setup = this.getSetup(item.code);
@@ -94,17 +90,7 @@ window.ModelManager = {
 			function(){
     			// If exists update from server
     			alert("exists-file-updatefromserver-1");
-    			try{
-    				ModelManager.updateFromServer(item);
-    			}catch(e){
-    				alert(e.message);
-    			}
-    			alert("exists-file-updatefromserver-2");
-    			try{
-    				update2();
-    			}catch(e){
-    				alert(e.message);
-    			}
+				ModelManager.updateFromServer(item);
 			}, 
 			function(){
 
@@ -116,7 +102,7 @@ window.ModelManager = {
 						alert("update-not-exists-saveFile");
 
 						// If file was created we must try update from server
-						this.updateFromServer(item);
+						ModelManager.updateFromServer(item);
 						
 					}, 
 					function(){}
@@ -128,9 +114,9 @@ window.ModelManager = {
     
     updateFromServer:function(definition){
 
-		alert("updateFromServer-definition:");
+		alert("updateFromServer-definition:" + definition.url);
 
-		var loadUrl = this.urlBase;// + definition.url;
+		var loadUrl = this.urlBase + definition.url;
         
 		$.getJSON(loadUrl, function(result) {
 
