@@ -34,8 +34,6 @@ window.ModelManager = {
     
 	getDefinition:function (type) {
 
-		alert("getDefinition-type:"+type);
-		
     	if(type == this.type.restaurant.code){
     		return this.type.restaurant;
     	} else {
@@ -46,8 +44,6 @@ window.ModelManager = {
     },
 
 	getSetup:function (type) {
-
-		alert("getSetup-type:"+type);
 
 		if(type == this.type.restaurant.code){
     		return this.setup.restaurant;
@@ -63,10 +59,7 @@ window.ModelManager = {
 	
     getAll:function (type, successCallback, errorCallback) {
 
-		alert("getAll-type:"+type);
-
 		var definition = this.getDefinition(type);
-		alert("getAll-definition.fileName:"+definition.fileName);
 
 		JSonUtil.read(definition.fileName, successCallback, errorCallback);
     	
@@ -74,8 +67,6 @@ window.ModelManager = {
 
     getById:function (id, collection) {
 		
-    	alert("getById-id:"+id);
-
 		for (var x=0; x < collection.length; x++) {
             var item = collection[x];
             if (item.id == id){
@@ -86,20 +77,13 @@ window.ModelManager = {
     },
     
     updateAll:function(){
-    	alert("updateAll");
-
     	_.each(this.type, function (item) {
-
-        	alert("updateAll-each-item:"+item);
-
         	this.update(item);
         }, this);    	
     },
     
     update:function(item){
 
-    	alert("update-item:"+item);
-    	
     	var setup = this.getSetup(item.code);
     	
     	JSonUtil.exists(item.fileName, 
@@ -132,7 +116,7 @@ window.ModelManager = {
 
 		alert("updateFromServer-definition:"+definition);
 
-		var loadUrl = this.urlBase + definition.url;
+		var loadUrl = this.urlBase;// + definition.url;
         
 		$.getJSON(loadUrl, function(result) {
 
