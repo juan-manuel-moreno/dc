@@ -11,7 +11,6 @@ $( document ).ready(function() {
 
 function onDeviceReady() {
 
-	alert("dev ready");
     loadTemplates( appTemplatesLoaded );
     
     ModelManager.updateAll();

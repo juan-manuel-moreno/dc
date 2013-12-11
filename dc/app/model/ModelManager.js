@@ -89,17 +89,14 @@ window.ModelManager = {
     	JSonUtil.exists(item.fileName, 
 			function(){
     			// If exists update from server
-    			alert("exists-file-updatefromserver-1");
 				ModelManager.updateFromServer(item);
 			}, 
 			function(){
 
-    			alert("update-not-exists-item.fileName:"+item.fileName+"-setup:"+setup);
 				// If not exist create file with setup values 
 				JSonUtil.save(item.fileName, setup,	
 					function(){
 
-						alert("update-not-exists-saveFile");
 
 						// If file was created we must try update from server
 						ModelManager.updateFromServer(item);
@@ -114,13 +111,11 @@ window.ModelManager = {
     
     updateFromServer:function(definition){
 
-		alert("updateFromServer-definition:" + definition.url);
 
 		var loadUrl = this.urlBase + definition.url;
         
 		$.getJSON(loadUrl, function(result) {
 
-			alert("updateFromServer-ok-result:"+result);
 
 			var jsonString = JSON.stringify(result.data);
         	JSonUtil.save(definition.fileName, jsonString, function(){}, function(){} );

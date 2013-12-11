@@ -24,7 +24,6 @@ JSonUtil = {
 	    	fileSystem.root.getFile(fileName, {create: false, exclusive: false}, function(fileEntry) {
 
 	    		fileEntry.file(function(file){
-		    		alert(file);
 	    			var reader = new FileReader();
 	    			reader.onloadend = function(evt) {
     	    	        readSuccess(evt.target.result);
