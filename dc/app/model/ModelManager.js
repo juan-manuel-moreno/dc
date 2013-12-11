@@ -89,7 +89,6 @@ window.ModelManager = {
     	JSonUtil.exists(item.fileName, 
 			function(){
     			// If exists update from server
-    			alert("update-exists-item:"+item);
     			this.updateFromServer(item);
 			}, 
 			function(){
@@ -114,9 +113,9 @@ window.ModelManager = {
     
     updateFromServer:function (definition) {
 
-		alert("updateFromServer-definition:"+definition);
+		alert("updateFromServer-definition:");
 
-		var loadUrl = this.urlBase;// + definition.url;
+/*		var loadUrl = this.urlBase;// + definition.url;
         
 		$.getJSON(loadUrl, function(result) {
 
@@ -127,7 +126,7 @@ window.ModelManager = {
 			
 		  }).error(function(result) {
 		  });
-
+*/
     },
     
     
