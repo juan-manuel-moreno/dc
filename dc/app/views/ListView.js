@@ -44,7 +44,7 @@ window.ListView = Backbone.View.extend({
         
         target.addClass( "listSelected" );
         var id = target.attr( "id" );
-        var item = LoadManager.loadById( id, this.model.items );
+        var item = ModelManager.getById( id, this.model.items );
         //console.log( poi );
         
         var itemView = new ItemView({model:item, labelSingular:this.model.labelSingular});

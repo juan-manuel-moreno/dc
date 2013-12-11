@@ -2,10 +2,13 @@
 
 window.LoadManager = {
 
-	type:{hotel:{code:"hotel",url:"/getHotels"}, restaurant:{code:"restaurant",url:"/getRestaurants"}},
+	type:{
+			hotel:{code:"hotel",url:"/getHotels"}, 
+			restaurant:{code:"restaurant",url:"/getRestaurants"}
+		},
 	
-	urlBase:"http://www.diproach.com/api/dc",
-	//urlBase:"http://localhost:8888/api/dc",
+	//urlBase:"http://www.diproach.com/api/dc",
+	urlBase:"http://localhost:8888/api/dc",
 	
     loadLocal:function (type, successCallback, errorCallback) {
     	var result;
@@ -55,11 +58,9 @@ window.LoadManager = {
 
     	var loadUrl = this.urlBase ;
 
-    	if(type == this.type.restaurant.code){
-    		loadUrl += this.type.restaurant.url;
-    	} else {
-    		loadUrl += this.type.hotel.url;
-    	}
+    	var definition = App.getDefinition(type);
+
+    	loadUrl += definition.url;
     	
     	
     	/*

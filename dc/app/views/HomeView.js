@@ -57,15 +57,13 @@ window.HomeView = Backbone.View.extend({
     },
 
     loadHotels:function () {
-    	var view = new LoadItemsView({type:LoadManager.type.hotel.code});
+    	var view = new LoadItemsView({type:ModelManager.type.hotel.code});
     	window.viewNavigator.pushView( view );
     },
 
     loadRestaurants:function () {
-    	JSonUtil.read("hotels.json", function(val) {alert(val);} , function() {alert("READNOK");} );
-
-//    	var view = new LoadItemsView({type:LoadManager.type.restaurant.code});
-//    	window.viewNavigator.pushView( view );
+    	var view = new LoadItemsView({type:ModelManager.type.restaurant.code});
+    	window.viewNavigator.pushView( view );
     },
 
     headerButtonClick: function (event) {

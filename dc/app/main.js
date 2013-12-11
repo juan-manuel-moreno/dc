@@ -5,14 +5,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // TODO comment to deploy
 $( document ).ready(function() {
 //	alert("doc ready");
-//	onDeviceReady();
+	onDeviceReady();
 });
 
 
 function onDeviceReady() {
 
-	alert("dev ready 2");
+	alert("dev ready");
     loadTemplates( appTemplatesLoaded );
+    
     
 }
 

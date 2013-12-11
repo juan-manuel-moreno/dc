@@ -27,18 +27,24 @@ JSonUtil = {
 		    		alert(file);
 	    			var reader = new FileReader();
 	    			reader.onloadend = function(evt) {
-			    		alert("onloadend");
-    	    	        alert(evt.target.result);
     	    	        readSuccess(evt.target.result);
     		        };
-		    		alert("readAsText");
 	    			reader.readAsText(file);
-
 		        	
 	    		}, readError);
 	        }, readError);
 	    }, readError);
 		
+    },
+	exists: function( fileName, existsYes, existsNo, existsError){
+		
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem) {
+	    	fileSystem.root.getFile(fileName, {create: false, exclusive: false}, function(fileEntry) {
+	    		existsYes();
+	        }, existsNo);
+	    }, existsError);
+		
     }
+    
     
 }
