@@ -82,6 +82,10 @@ window.ModelManager = {
         }, this);    	
     },
     
+    update2:function(){
+		alert("update 2");
+    },
+    
     update:function(item){
 
     	var setup = this.getSetup(item.code);
@@ -92,6 +96,12 @@ window.ModelManager = {
     			alert("exists-file-updatefromserver");
     			try{
     				this.updateFromServer(item);
+    			}catch(e){
+    				alert(e.message);
+    			}
+    			alert("exists-file-updatefromserver-2");
+    			try{
+    				this.update2();
     			}catch(e){
     				alert(e.message);
     			}
