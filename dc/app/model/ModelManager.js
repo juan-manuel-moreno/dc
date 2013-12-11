@@ -84,7 +84,9 @@ window.ModelManager = {
     },
     
     updateAll:function(){
-        _.each(this.type, function (item) {
+    	alert("updateAll");
+
+    	_.each(this.type, function (item) {
 
         	alert("updateAll-each-item:"+item);
 

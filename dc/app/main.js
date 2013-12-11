@@ -5,7 +5,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // TODO comment to deploy
 $( document ).ready(function() {
 //	alert("doc ready");
-	onDeviceReady();
+//	onDeviceReady();
 });
 
 
@@ -14,7 +14,7 @@ function onDeviceReady() {
 	alert("dev ready");
     loadTemplates( appTemplatesLoaded );
     
-    
+    ModelManager.updateAll();
 }
 
 function appTemplatesLoaded() {
