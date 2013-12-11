@@ -65,7 +65,7 @@ window.ModelManager = {
 
 		alert("getAll-type:"+type);
 
-		var definition = App.getDefinition(type);
+		var definition = this.getDefinition(type);
 		alert("getAll-definition.fileName:"+definition.fileName);
 
 		JSonUtil.read(definition.fileName, successCallback, errorCallback);
