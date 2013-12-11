@@ -93,15 +93,15 @@ window.ModelManager = {
     	JSonUtil.exists(item.fileName, 
 			function(){
     			// If exists update from server
-    			alert("exists-file-updatefromserver");
+    			alert("exists-file-updatefromserver-1");
     			try{
-    				this.updateFromServer(item);
+    				ModelManager.updateFromServer(item);
     			}catch(e){
     				alert(e.message);
     			}
     			alert("exists-file-updatefromserver-2");
     			try{
-    				this.update2();
+    				update2();
     			}catch(e){
     				alert(e.message);
     			}
@@ -130,7 +130,7 @@ window.ModelManager = {
 
 		alert("updateFromServer-definition:");
 
-/*		var loadUrl = this.urlBase;// + definition.url;
+		var loadUrl = this.urlBase;// + definition.url;
         
 		$.getJSON(loadUrl, function(result) {
 
@@ -141,7 +141,7 @@ window.ModelManager = {
 			
 		  }).error(function(result) {
 		  });
-*/
+
     }
     
     
