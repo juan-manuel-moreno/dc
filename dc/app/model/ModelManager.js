@@ -61,10 +61,16 @@ window.ModelManager = {
 
 		var definition = this.getDefinition(type);
 
-		JSonUtil.read(definition.fileName, successCallback, errorCallback);
+    	if(App.isEnvironmentWeb()){
+    		var setup = this.getSetup(type);
+    		successCallback(JSON.stringify(setup));
+    	} else {
+    		JSonUtil.read(definition.fileName, successCallback, errorCallback);
+    	} 
     	
     },
 
+    
     getById:function (id, collection) {
 		
 		for (var x=0; x < collection.length; x++) {
@@ -77,6 +83,8 @@ window.ModelManager = {
     },
     
     updateAll:function(){
+    	if(App.isEnvironmentWeb()) return;
+    	
     	_.each(this.type, function (item) {
         	this.update(item);
         }, this);    	
@@ -110,7 +118,6 @@ window.ModelManager = {
     },
     
     updateFromServer:function(definition){
-
 
 		var loadUrl = this.urlBase + definition.url;
         

@@ -2,10 +2,8 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 
-// TODO comment to deploy
 $( document ).ready(function() {
-//	alert("doc ready");
-//	onDeviceReady();
+	if(App.isEnvironmentWeb()) onDeviceReady();
 });
 
 
