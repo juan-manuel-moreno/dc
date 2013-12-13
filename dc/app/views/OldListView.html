@@ -1,6 +1,11 @@
 
+    <div class="header gpu">
+        <h1><%=labelPlural%></h1>
+    </div>
+
+
 <% if ((typeof(items) != "undefined") && items.length > 0) { %>
-    <ul class="data-list" id="list"></ul>
+    <ul class="data-list" id="list" style="background-color: white; margin:0px; padding:0px; border-bottom: 1px solid #CCC;"></ul>
 <% } else { %>
     <div style="padding:10px;">
         <div class="alert alert-error" >

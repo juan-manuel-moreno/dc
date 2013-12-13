@@ -4,7 +4,8 @@ window.ModelManager = {
 
 	type:{
 		hotel:{code:"hotel",url:"/getHotels",fileName:"hotel.json"}, 
-		restaurant:{code:"restaurant",url:"/getRestaurants",fileName:"restaurant.json"}
+		restaurant:{code:"restaurant",url:"/getRestaurants",fileName:"restaurant.json"},
+		attraction:{code:"attraction",url:"/getAttractions",fileName:"attraction.json"}
 	},
 
 	setup:{
@@ -18,6 +19,20 @@ window.ModelManager = {
 	           labelPlural: "Hoteles",
 	           labelSingular: "Hotel",
 	           type: "hotel"
+		}, 
+		attraction:{
+            items: [	
+                     {"name":"Estancia","id":"1"}
+	           		,{"name":"Torre","id":"2"}
+	           		,{"name":"Festival","id":"3"}
+	           		,{"name":"Estacion","id":"4"}
+	           		,{"name":"Museo","id":"5"}
+	           		,{"name":"Parrilla","id":"6"}
+	           		,{"name":"Circuito Autoguiado","id":"7"}
+           	   ],
+           labelPlural: "Atracciones",
+           labelSingular: "Atraccion",
+           type: "attraction"
 		}, 
 		restaurant:{
 	            items: [	
@@ -36,8 +51,10 @@ window.ModelManager = {
 
     	if(type == this.type.restaurant.code){
     		return this.type.restaurant;
-    	} else {
+    	} else if(type == this.type.hotel.code){
     		return this.type.hotel;
+    	} else if(type == this.type.attraction.code){
+    		return this.type.attraction;
     	}
     	
     	return;
@@ -45,10 +62,12 @@ window.ModelManager = {
 
 	getSetup:function (type) {
 
-		if(type == this.type.restaurant.code){
+    	if(type == this.type.restaurant.code){
     		return this.setup.restaurant;
-    	} else {
+    	} else if(type == this.type.hotel.code){
     		return this.setup.hotel;
+    	} else if(type == this.type.attraction.code){
+    		return this.setup.attraction;
     	}
     	
     	return;

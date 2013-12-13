@@ -24,7 +24,7 @@ window.ItemView = Backbone.View.extend({
     render:function (eventName) {
         var model = this.model;
         this.$el.html( this.template( model ));
-//        this.$el.css("background", "white");
+        this.$el.css("background", "white");
 
         return this;
     }
